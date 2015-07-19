@@ -1,0 +1,9 @@
+---
+- name: checkout graphite-api-influxdb-docker
+  git: repo=https://github.com/gitinsky/graphite-api-influxdb-docker.git dest=/root/graphite-api-influxdb-dockerized
+
+- name: build a Docker image for graphite-api-influxdb
+  command: docker build -t gitinsky/graphite-api-influxdb:0.1.0 --rm /root/graphite-api-influxdb-dockerized
+
+- name: tag it as latest
+  command: docker build -t gitinsky/graphite-api-influxdb:latest --rm /root/graphite-api-influxdb-dockerized
